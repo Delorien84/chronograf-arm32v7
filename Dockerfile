@@ -4,7 +4,7 @@ ARG version=1.3.6.0
 RUN [ "cross-build-start" ]
 
 RUN apt-get update && apt-get install wget && \
-	wget wget https://dl.influxdata.com/chronograf/releases/chronograf-${version}_linux_armhf.tar.gz && \
+	wget https://dl.influxdata.com/chronograf/releases/chronograf-${version}_linux_armhf.tar.gz && \
 	tar xvfz chronograf-${version}_linux_armhf.tar.gz && \
 	rm chronograf-${version}_linux_armhf.tar.gz && \
 	cp -av chronograf-*/* / && \
