@@ -5,8 +5,10 @@ RUN [ "cross-build-start" ]
 
 RUN apt-get update && apt-get install wget && \
 	wget wget https://dl.influxdata.com/chronograf/releases/chronograf-${version}_linux_armhf.tar.gz && \
-	tar xvfz chronograf-${version}_linux_armhf.tar.gz --strip-components=1 -C / && \
+	tar xvfz chronograf-${version}_linux_armhf.tar.gz && \
 	rm chronograf-${version}_linux_armhf.tar.gz && \
+	cp -av chronograf-*/* / && \
+        rm -fr chronograf-* && \
 	apt-get clean all && \
     	rm -r /var/lib/apt/lists/*
 
