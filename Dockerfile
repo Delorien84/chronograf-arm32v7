@@ -9,8 +9,10 @@ RUN apt-get update && apt-get install wget && \
 	rm chronograf-${version}_linux_armhf.tar.gz && \
 	cp -av chronograf-*/* / && \
         rm -fr chronograf-* && \
+	apt-get purge wget && \
+	apt-get autoremove && \
 	apt-get clean all && \
-    	rm -r /var/lib/apt/lists/*
+	rm -r /var/lib/apt/lists/*
 
 RUN [ "cross-build-end" ]  
 
