@@ -17,5 +17,4 @@ RUN apt-get update && apt-get install wget && \
 RUN [ "cross-build-end" ]  
 
 EXPOSE 8888
-ENTRYPOINT ["/usr/bin/chronograf"]
-CMD ["--host", "0.0.0.0", "--port", "8888", "-b", "/var/lib/chronograf/chronograf-v1.db", "-c", "/usr/share/chronograf/canned"]
+ENTRYPOINT ["/usr/bin/chronograf", "--host", "0.0.0.0", "--port", "8888", "-b", "/var/lib/chronograf/chronograf-v1.db", "-c", "/usr/share/chronograf/canned"]
